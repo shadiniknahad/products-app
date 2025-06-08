@@ -1,4 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+🛍️ Product List App (Next.js)
+This is a simple product listing application built with Next.js, which demonstrates modern best practices in:
+
+Data fetching
+
+Caching
+
+Separation of concerns (services, utils, hooks)
+
+Error handling
+
+Responsive and clean UI
+
+🔧 Features
+Fetches product list from https://dummyjson.com/products
+
+Caches product data in localStorage for performance
+
+Uses custom React hooks (useProducts) for data fetching
+
+Has utility functions for handling UI logic like getRatingColor
+
+Supports viewing individual product details by dynamic route (/product/:id)
+
+Error and loading states are gracefully handled
+
+
 
 ## Getting Started
 
