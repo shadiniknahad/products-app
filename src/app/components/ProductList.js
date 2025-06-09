@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { getRatingColor } from "@/utils/getRatingColor";
+import { getRatingColor } from "@/helpers/getRatingColor";
 import { useProducts } from "@/hooks/useProducts";
 
 export default function ProductList() {
@@ -13,19 +13,15 @@ export default function ProductList() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
       {products?.map(({ id, title, rating }) => (
-        <div
+        <Link
           key={id}
-          className="border rounded-lg p-4 shadow hover:shadow-md transition bg-white dark:bg-gray-900 flex flex-col"
+          href={`/product/${id}`}
+          className="border rounded-lg p-4 shadow hover:shadow-md transition bg-white dark:bg-gray-900 flex flex-col no-underline focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
-          <Link
-            href={`/product/${id}`}
-            className="font-semibold text-lg hover:underline mb-2"
-          >
-            {title}
-          </Link>
+          <h2 className="font-semibold text-lg mb-2">{title}</h2>
           <span className={`text-xl ${getRatingColor(rating)}`}>★</span>
           <span className="text-sm text-gray-600 mt-auto">امتیاز: {rating}</span>
-        </div>
+        </Link>
       ))}
     </div>
   );

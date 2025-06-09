@@ -1,4 +1,3 @@
-// src/utils/storage.js
 
 export function loadFromCache(key) {
     try {

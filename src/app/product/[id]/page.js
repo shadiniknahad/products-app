@@ -2,7 +2,7 @@
 
 import { useParams } from "next/navigation";
 import { useProducts } from "@/hooks/useProducts";
-import { getRatingColor } from "@/utils/getRatingColor";
+import { getRatingColor } from "@/helpers/getRatingColor";
 
 export default function ProductPage() {
   const params = useParams();
@@ -21,7 +21,7 @@ export default function ProductPage() {
         {product.title}
       </h1>
       <p>امتیاز: {product.rating}</p>
-      <p>قیمت: ${product.price}</p>
+      <p>قیمت: {product.price}</p>
       <p>درصد تخفیف: {product.discountPercentage}%</p>
       <p>موجودی: {product.stock}</p>
     </div>

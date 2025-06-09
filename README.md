@@ -11,6 +11,23 @@ Error handling
 
 Responsive and clean UI
 
+
+This project follows a clean and modular structure with proper separation of concerns:
+
+src/
+├── app/                 # Next.js app directory (pages, routes)
+│   └── product/[id]/    # Dynamic product detail page
+├── components/          # Reusable UI components
+├── services/            # Data-fetching logic (API layer)
+│   └── productService.js
+├── hooks/               # Custom React hooks (e.g., useProducts)
+├── utils/               # General-purpose, pure utility functions
+│   └── storage.js       # LocalStorage helpers: loadFromCache, saveToCache
+├── helpers/             # UI-related logic helpers
+│   └── ratingHelpers.js # getRatingColor
+└── constants/           # Static values like API URLs
+
+
 🔧 Features
 Fetches product list from https://dummyjson.com/products
 
@@ -18,7 +35,7 @@ Caches product data in localStorage for performance
 
 Uses custom React hooks (useProducts) for data fetching
 
-Has utility functions for handling UI logic like getRatingColor
+Includes UI-specific helper functions such as getRatingColor to determine styling based on product rating
 
 Supports viewing individual product details by dynamic route (/product/:id)
 

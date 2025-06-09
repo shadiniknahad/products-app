@@ -8,6 +8,8 @@ export function useProducts() {
   const [error, setError] = useState(null);
 
   const fetchData = useCallback(async () => {
+    setLoading(true);
+    setError(null);
     try {
       const products = await fetchProductsFromAPI();
       setProducts(products);
