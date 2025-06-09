@@ -1,6 +1,8 @@
 import { useEffect, useState, useCallback } from "react";
 import { loadFromCache, saveToCache } from "@/utils/storage";
 import { fetchProducts as fetchProductsFromAPI } from "@/services/productService";
+import { isValidProductsData } from "@/utils/validation";
+
 
 export function useProducts() {
   const [products, setProducts] = useState([]);
@@ -8,8 +10,7 @@ export function useProducts() {
   const [error, setError] = useState(null);
 
   const fetchData = useCallback(async () => {
-    setLoading(true);
-    setError(null);
+    setLoading(true); 
     try {
       const products = await fetchProductsFromAPI();
       setProducts(products);
@@ -24,7 +25,8 @@ export function useProducts() {
 
   useEffect(() => {
     const cached = loadFromCache("products");
-    if (cached) {
+
+    if (isValidProductsData(cached)) {
       setProducts(cached);
       setLoading(false);
     } else {
